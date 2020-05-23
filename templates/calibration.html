@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Record Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 style="margin-top: 30px; margin-bottom: 20px; text-align: center;" class="col-sm-12">Thesis Open MHA Calibration</h1>
+
+            <div class="col-sm-12" style="text-align: center; margin-top: 30px; font-size: 24px; margin-bottom:10px;">Please do a calibration for each filter bank</div>
+            <div id="controls" class="col-sm-12">
+                <button id="recordButton" class="col-sm-4 offset-2 btn btn-success">FFTFBPOW</button>
+                <button id="pauseButton" class="col-sm-4 btn btn-primary">FFTFILTERBANK</button>
+                <button id="stopButton" class="col-sm-4 offset-2 btn btn-warning">GTFB_ANALYZER</button>
+                <button id="stopButton" class="col-sm-4 btn btn-danger">MULTIBANDCOMPRESSOR</button>
+            </div>
+            <div id="wait" class="col-sm-12" style="margin-top: 20px; font-size: 25px; text-align: center;"></div>
+            <div class="col-sm-12">
+                <img src="static/images.png" alt="Italian Trulli" style="height: 200px; display:block; margin: auto; margin-top: 40px; ">
+            </div> 
+            <div class="col-sm-12" style="text-align: center; margin-top: 30px; font-size: 24px; margin-bottom:10px;">Please record a sound to start the calibration</div>
+            <div id="controls" class="col-sm-12">
+                <button id="recordButton" class="col-sm-4 btn btn-success">Record</button>
+                <button id="pauseButton" class="col-sm-3 btn btn-default" disabled>Pause</button>
+                <button id="stopButton" class="col-sm-4 btn btn-warning" disabled>Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='recorder.js')}}"></script>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+nchannels_in = 4
+fragsize = 64
+srate = 44100
+mhalib = mhachain
+iolib = MHAIOFile
+mha.algos=[ fftfilterbank ]
+mha.fftfilterbank.f = [1999, 2000, 2001]
+mha.fftfilterbank.fail_on_unique_bins = no
+mha.fftfilterbank.ovltype = linear
+io.in = Cba2.wav
+io.out = out_Cba2.wav

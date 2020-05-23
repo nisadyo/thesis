@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <meta charset='utf-8'> -->
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <title>Page Title</title>
+    <!-- <meta name='viewport' content='width=device-width, initial-scale=1'> -->
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+</head>
+
+<body>
+    <h1>Thesis Open MHA DB</h1>
+    <!-- <p id="demo">Ini lho</p>
+
+    <button type="button" onclick="myFunction()">Try it</button> -->
+
+    <!-- <p>(myFunction is stored in an external file called "myScript.js")</p> -->
+
+    <div id="controls">
+        <button id="recordButton">Record</button>
+        <button id="pauseButton" disabled>Pause</button>
+        <button id="stopButton" disabled>Stop</button>
+    </div>
+    <div id="formats">Format: start recording to see sample rate</div>
+    <p><strong>Recordings:</strong></p>
+    <ol id="recordingsList"></ol>
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+    <form action="localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="audio_file"/>
+        <input type="submit" />
+    </form>
+    <img src="static/images.png" alt="Italian Trulli">
+    <br>
+    <audio controls>
+        <source src={{audio}} type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script> -->
+    <script src="{{url_for('static', filename='recorder.js')}}"></script>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+</body>
+
+</html>

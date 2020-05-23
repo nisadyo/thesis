@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Result Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 style="margin-top: 30px; margin-bottom: 20px; text-align: center;" class="col-sm-12">Thesis Open MHA Result</h1>
+            
+            <div class="col-sm-12">
+                <img src="static/images.png" alt="Italian Trulli" style="height: 400px; display:block; margin: auto; margin-top: 40px; ">
+            </div>
+            <audio controls class="col-sm-12" style="margin-top: 20px;">
+                <source src={{audio}} type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+            <br>
+            <h5 class="col-sm-12 btn btn-success" style="text-align: center; margin-top: 10px;">
+                <a href="http://localhost:5000" style="color: white;">Start record again</a>
+                <!-- <a href="http://192.168.100.9:5000" style="color: white;">Start record again</a> -->
+            </h5>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script> -->
+    <script src="{{url_for('static', filename='recorder.js')}}"></script>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+</body>
+
+</html>
