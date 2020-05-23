@@ -43,8 +43,8 @@ def record_file():
       os.system('del fftfilterbank.cfg')
       f = open("fftfilterbank.cfg", "a")
       f.write("nchannels_in = " + str(2) + "\nfragsize = 64\nsrate = "+str(rate_in)+"\nmhalib = mhachain\niolib = MHAIOFile\nmha.algos=[ fftfilterbank ]\nmha.fftfilterbank.f = " + re.sub(",","",str(frek)) + "\nmha.fftfilterbank.fail_on_unique_bins = no\nmha.fftfilterbank.ovltype = " + ovltype + "\nio.in = " + os.path.join(app.config['UPLOAD_FOLDER'],f_in_new_name) + "\nio.out = " + os.path.join(app.config['UPLOAD_FOLDER'], "out_" + fname) + "\n")
-      
       f.close()
+      
       conf= "mha --interactive ?read:fftfilterbank.cfg cmd=start cmd=quit"
       os.system(conf)
       time.sleep(5)
