@@ -60,7 +60,7 @@ def tryReadGammatone(filename):
     center = gammatone.filters.centre_freqs(fs, 1, frek[0])
     fcoefs = gammatone.filters.make_erb_filters(fs, center, 100)
     
-    norm = gammatone.filters.erb_space(frek[0], frek[2], len(fcoefs[0]))
+    norm = 2 * (1 - abs(fcoefs)) ** 4
     # print("ini norm")
     norm=norm.tolist()
     # return frek,len(data)

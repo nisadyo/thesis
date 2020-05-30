@@ -43,7 +43,7 @@ def record_file():
       
       os.system('del gammatone.cfg')
       f = open("gammatone.cfg", "a")
-      f.write("nchannels_in = " + str(2) + "\nfragsize = 64\nsrate = "+str(rate_in)+"\nmhalib = mhachain\niolib = MHAIOFile\nmha.algos=[ gtfb_analyzer ]\nmha.gtfb_analyzer.coeff = " + re.sub("'","",str(['{:.30f}'.format(round(x,30)) for x in fcoef[0]] )).replace(",","") + "\nmha.gtfb_analyzer.norm_phase = " + str(norm).replace(",","") + "\nio.in = " + os.path.join(app.config['UPLOAD_FOLDER'],f_in_new_name) + "\nio.out = " + os.path.join(app.config['UPLOAD_FOLDER'], "out_" + fname) + "\n")
+      f.write("nchannels_in = " + str(2) + "\nfragsize = 64\nsrate = "+str(rate_in)+"\nmhalib = mhachain\niolib = MHAIOFile\nmha.algos=[ gtfb_analyzer ]\nmha.gtfb_analyzer.coeff = " + re.sub("'","",str(['{:.30f}'.format(round(x,30)) for x in fcoef[0]] )).replace(",","") + "\nmha.gtfb_analyzer.norm_phase = " + re.sub("'","",str(['{:.30f}'.format(round(x,30)) for x in norm[0]] )).replace(",","") + "\nio.in = " + os.path.join(app.config['UPLOAD_FOLDER'],f_in_new_name) + "\nio.out = " + os.path.join(app.config['UPLOAD_FOLDER'], "out_" + fname) + "\n")
       f.close()
       
       conf= "mha --interactive ?read:gammatone.cfg cmd=start cmd=quit"
@@ -70,7 +70,7 @@ def upload_file():
       # ganti conf dengan
       os.system('del gammatone.cfg')
       f = open("gammatone.cfg", "a")
-      f.write("nchannels_in = " + str(chn) + "\nfragsize = 64\nsrate = " + str(fs) + "\nmhalib = mhachain\niolib = MHAIOFile\nmha.algos=[ gammatone ]\nmha.gammatone.coeff = " + re.sub("'","",str(['{:.30f}'.format(round(x,30)) for x in fcoef[0]] )).replace(",","") + "\nmha.gtfb_analyzer.norm_phase = " + str(norm).replace(",","") + "\nio.in = " + os.path.join(app.config['UPLOAD_FOLDER'],fname) + "\nio.out = " + os.path.join(app.config['UPLOAD_FOLDER'], "out_" + fname) + "\n")
+      f.write("nchannels_in = " + str(chn) + "\nfragsize = 64\nsrate = " + str(fs) + "\nmhalib = mhachain\niolib = MHAIOFile\nmha.algos=[ gammatone ]\nmha.gammatone.coeff = " + re.sub("'","",str(['{:.30f}'.format(round(x,30)) for x in fcoef[0]] )).replace(",","") + "\nmha.gtfb_analyzer.norm_phase = " + re.sub("'","",str(['{:.30f}'.format(round(x,30)) for x in norm[0]] )).replace(",","") + "\nio.in = " + os.path.join(app.config['UPLOAD_FOLDER'],fname) + "\nio.out = " + os.path.join(app.config['UPLOAD_FOLDER'], "out_" + fname) + "\n")
       f.close()
       conf= "mha --interactive ?read:gammatone.cfg cmd=start cmd=quit"
       os.system(conf)
